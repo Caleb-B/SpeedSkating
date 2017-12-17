@@ -26,6 +26,7 @@
 	 private int id;			// id for this object
 	 
 	 private Time[] timeList = new Time[MAXTIME];
+	 private int count = 0;		// actual number of items in timeList
 	 
  	// ********** constructors ***********
  	
@@ -59,5 +60,18 @@
 	 } // end getTime
 	 
  	// ********** mutators **********
+	 
+	 public void addTime(int idx, Time t) {
+		 if (count < timeList.length) {
+			 timeList[count] = t;
+
+			 count++;
+		 }
+		 else {
+			 for (int i = 0; i < timeList.length; i++) {
+				 timeList[i] = timeList[i + 1];
+			 } // end for int i
+		 }
+	 } // end addTime
  
  }  // end class

@@ -25,10 +25,12 @@ public class speedSkaterClient
 	
 	// ***** create objects *****
 		
+		speedSkater Skater = new speedSkater();
 		
 	// ***** create input stream *****
 	
 		//ConsoleReader console = new ConsoleReader(System.in);
+		
 		
 	// ***** Print Banner *****
 	
@@ -50,6 +52,8 @@ public class speedSkaterClient
 	// ***** output *****
 	
 		// all formatted ouput is printed in this section
+		
+		System.out.println(Skater.getTime(0));
 
 	// ***** closing message *****
 	
