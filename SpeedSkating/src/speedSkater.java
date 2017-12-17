@@ -59,6 +59,23 @@
 		 return timeList[idx].toString();
 	 } // end getTime
 	 
+	 public String getAvgTime() {
+		 int sum = 0;			// total sum of all times in timeList, in seconds
+		 int avg;				// average time in seconds
+		 
+		 String avgStr;			// average time in minutes and seconds, as string
+		 for (int i = 0; i < count; i++) {
+			 sum += timeList[i].getMinutes() * 60;
+			 sum += timeList[i].getSeconds();
+		 } // end for int i
+		 
+		 avg = sum / count;
+		 
+		 avgStr = String.format("%02d:%02d", (avg / 60), (avg % 60));
+		 
+		 return avgStr;
+	 } // end getAvgTime
+	 
  	// ********** mutators **********
 	 
 	 public void addTime(int idx, Time t) {
