@@ -77,6 +77,16 @@
 		 strout = String.format("%02d:%02d", this.getMinutes(), this.getSeconds());
 		 return strout;
 	 }
+	 
+	//*****************************************************
+	// Purpose: get the distance
+	// Interface: IN: none
+	// Returns: DISTANCE
+	// *****************************************************
+	 public int getDistance() {
+		 return DISTANCE;
+	 } // end getDistance
+	 
  	// ********** mutators **********
  
  }  // end class

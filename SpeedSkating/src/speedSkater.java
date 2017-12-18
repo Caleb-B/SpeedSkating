@@ -92,9 +92,15 @@
 		 return sum;
 	 } // end getSum
 	 
+	//*****************************************************
+	// Purpose: get the average speed over all races
+	//			in kilometers per hour
+	// Interface: IN: none
+	// Returns: avgSpeed
+	// *****************************************************
 	 public String getAvgSpeed() {
-		 String avgSpeed;
-		 avgSpeed = "";
+		 String avgSpeed;			// string of the average speed in km/hour
+		 avgSpeed = Double.toString(this.getSum() * timeList[0].getDistance() * 3.6);
 		 return avgSpeed;
 	 } // end for getAvgSpeed
 	 
