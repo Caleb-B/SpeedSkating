@@ -79,7 +79,7 @@ public class speedSkaterClient
 	        tokens = strin.split(delim);
 	        
 	        for (int i = 0; i < tokens.length; i++) {
-	        	System.out.println(tokens[i]);
+	        	//System.out.println(tokens[i]);
 	        	String[] times = tokens[i].split("[:]+");
 	        	
 	        	sList[n].addTime(Integer.parseInt(times[0]), Integer.parseInt(times[1]));
@@ -87,7 +87,7 @@ public class speedSkaterClient
 	        
 	        
 	        n++;                         // increment counter
-	        System.out.println(strin);
+	        //System.out.println(strin);
 	        strin = fin.readLine();
 	    } // end eof loop
 		
@@ -95,7 +95,17 @@ public class speedSkaterClient
 	
 		// all formatted ouput is printed in this section
 		
-		
+		for (int i = 0; i < n; i++) {
+			System.out.println("Stats. of Skater " + (i + 1));
+			System.out.println("Average Speed: " + sList[i].getAvgSpeed());
+			System.out.println("Average Time: " + sList[i].getAvgTime());
+			for ( int idx = 0; idx < sList[i].getCount(); idx++) {
+				System.out.println("Time for Race " + (idx + 1) + ": " + sList[i].getTime(idx));
+				System.out.println("Speed for Race " + (idx + 1) + ": " + sList[i].getSpeed(idx));
+			} // end for idx
+			
+			System.out.println("");
+		} // end for i
 
 	// ***** closing message *****
 	

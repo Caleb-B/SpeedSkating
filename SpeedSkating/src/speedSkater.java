@@ -51,7 +51,7 @@
 	 } // end getATime
 	 
 	//*****************************************************
-	// Purpose: get the time
+	// Purpose: get a Time object
 	// Interface: IN: none
 	// Returns: timeList[idx].getTime()
 	// *****************************************************
@@ -100,7 +100,8 @@
 	// *****************************************************
 	 public String getAvgSpeed() {
 		 String avgSpeed;			// string of the average speed in km/hour
-		 avgSpeed = Double.toString(this.getSum() * this.timeList[0].getDistance() * 3.6);
+		 
+		 avgSpeed = Double.toString((this.getSum() / 3600.0) * (this.timeList[0].getDistance() / 1000));
 		 return avgSpeed;
 	 } // end for getAvgSpeed
 	 
@@ -110,8 +111,17 @@
 	// Returns: timeList[idx].getSpeed()
 	// *****************************************************
 	 public String getSpeed(int idx) {
-		 return this.timeList[idx].getSpeed();
+		 return Double.toString(1.0 * this.timeList[idx].getDistance() * this.count / this.getSum());
 	 } // end getSpeed
+	 
+	//*****************************************************
+	// Purpose: get the actual number of objects in timeList
+	// Interface: IN: none
+	// Returns: count
+	// *****************************************************
+	 public int getCount() {
+		 return this.count;
+	 } // end getCount
 	 
  	// ********** mutators **********
 	 

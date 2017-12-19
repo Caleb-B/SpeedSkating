@@ -56,18 +56,6 @@
 	 } // end getSeconds
 	 
 	//*****************************************************
-	// Purpose: get speed of a trial
-	// Interface: IN: none
-	// Returns: speed
-	// *****************************************************
-	 public String getSpeed() {
-		 String speed;
-		 speed = Double.toString((DISTANCE / ((this.getMinutes() / 60)
-				 + this.getSeconds())) / 3.6);
-		 return speed;
-	 } // end getSpeed
-	 
-	//*****************************************************
 	// Purpose: return the assessment details as a string
 	// Interface: IN: none
 	// Returns: strout
