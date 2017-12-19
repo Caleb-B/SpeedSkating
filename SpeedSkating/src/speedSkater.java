@@ -1,8 +1,8 @@
 /* **********************************************************
- * Programmer:	Rob Sveinson
- * Class:		CS20S
+ * Programmer:	Caleb Beynon
+ * Class:		CS30S
  * 
- * Assignment:	aX  qY
+ * Assignment:	2
  *
  * Description:	describe the class you are creating
  *
@@ -34,7 +34,7 @@
 		 id = nextID++;
 		 
 		 for (int i = 0; i < MAXTIME; i++) {
-			 timeList[i] = new Time();
+			 this.timeList[i] = new Time();
 		 }
 	 } // end default constructor
 	 
@@ -47,7 +47,7 @@
 	// Returns: timeList[idx]
 	// *****************************************************
 	 public Time getATime(int idx) {
-		 return timeList[idx];
+		 return this.timeList[idx];
 	 } // end getATime
 	 
 	//*****************************************************
@@ -56,7 +56,7 @@
 	// Returns: timeList[idx].getTime()
 	// *****************************************************
 	 public String getTime(int idx) {
-		 return timeList[idx].toString();
+		 return this.timeList[idx].toString();
 	 } // end getTime
 	 
 	//*****************************************************
@@ -69,7 +69,7 @@
 		 
 		 String avgStr;			// average time in minutes and seconds, as string
 		 
-		 avg = this.getSum() / count;
+		 avg = this.getSum() / this.count;
 		 
 		 avgStr = String.format("%02d:%02d", (avg / 60), (avg % 60));
 		 
@@ -81,12 +81,12 @@
 	// Interface: IN: none
 	// Returns: sum
 	// *****************************************************
-	 public int getSum() {
+	 private int getSum() {
 		 int sum = 0;			// total sum of all times in timeList, in seconds
 		 
-		 for (int i = 0; i < count; i++) {
-			 sum += timeList[i].getMinutes() * 60;
-			 sum += timeList[i].getSeconds();
+		 for (int i = 0; i < this.count; i++) {
+			 sum += this.timeList[i].getMinutes() * 60;
+			 sum += this.timeList[i].getSeconds();
 		 } // end for int i
 		 
 		 return sum;
@@ -100,9 +100,18 @@
 	// *****************************************************
 	 public String getAvgSpeed() {
 		 String avgSpeed;			// string of the average speed in km/hour
-		 avgSpeed = Double.toString(this.getSum() * timeList[0].getDistance() * 3.6);
+		 avgSpeed = Double.toString(this.getSum() * this.timeList[0].getDistance() * 3.6);
 		 return avgSpeed;
 	 } // end for getAvgSpeed
+	 
+	//*****************************************************
+	// Purpose: get the speed of a specific race
+	// Interface: IN: index (int)
+	// Returns: timeList[idx].getSpeed()
+	// *****************************************************
+	 public String getSpeed(int idx) {
+		 return this.timeList[idx].getSpeed();
+	 } // end getSpeed
 	 
  	// ********** mutators **********
 	 
@@ -112,16 +121,17 @@
 	//				time (Time)
 	// Returns: none
 	// *****************************************************
-	 public void addTime(int idx, Time t) {
-		 if (count < timeList.length) {
-			 timeList[count] = t;
+	 public void addTime(int m, int s) {
+		 if (this.count < this.timeList.length) {
+			 this.timeList[this.count].setTime(m, s);
 
-			 count++;
+			 this.count++;
 		 }
 		 else {
-			 for (int i = 0; i < timeList.length; i++) {
-				 timeList[i] = timeList[i + 1];
+			 for (int i = 0; i < this.timeList.length - 1; i++) {
+				 this.timeList[i] = this.timeList[i + 1];
 			 } // end for int i
+			 this.timeList[this.count - 1].setTime(m, s);
 		 }
 	 } // end addTime
  

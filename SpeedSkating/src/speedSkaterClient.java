@@ -13,32 +13,53 @@
 // ***********************************************************************
 
 import javax.swing.*;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
 
 public class speedSkaterClient
 {  // begin class
-	public static void main(String args[])
+	public static void main(String args[]) throws IOException
 	{  // begin main
 	// ***** declaration of constants *****
 	
 	// ***** declaration of variables *****
 	
-	// ***** create objects *****
+		String strin;				// string data input from keyboard
+    	String strout;				// processed info string to be output
+    	String bannerOut;			// string to print banner to message dialogs
+    	
+    	String prompt;				// prompt for use in input dialogs
+    	
+    	String delim = "[ ]+";		// delimiter string for splitting input string
+        String[] tokens = null;          // array for splitting input
+    	String tabSpace = "      ";	// six spaces
+        
+        speedSkater[] sList = null;
+        sList = new speedSkater[10];            // array of skaters
+        int n = 0;                          	// skater object counter
+        
+     // create instances of objects for i/o and formatting
+        
+    	//ConsoleReader console = new ConsoleReader(System.in);
+    	//DecimalFormat df1 = new DecimalFormat("$##.00");
+    	
+    	BufferedReader fin = new BufferedReader(new FileReader("skaterData.txt"));
+		PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("testOut.txt")));
 		
 		speedSkater Skater = new speedSkater();
-		
-	// ***** create input stream *****
-	
-		//ConsoleReader console = new ConsoleReader(System.in);
-		
+		ProgramInfo Printer = new ProgramInfo();
 		
 	// ***** Print Banner *****
-	
-		System.out.println("**********************************");
-		System.out.println("NAME:        Your Name Here");
-		System.out.println("Class:       CS30S");
-		System.out.println("Assignment:  Ax Qy");
-		System.out.println("**********************************");
+		
+		fout.println(Printer.getBanner("Assignment: 2"));
+		Printer.printBanner("Assignment: 2");
 		
 	// ***** get input *****
 	
@@ -47,17 +68,41 @@ public class speedSkaterClient
 		// same folder.
 	
 	// ***** processing *****
-	
+
+		//ConsoleReader console = new ConsoleReader(System.in);
+		
+		strin = fin.readLine();
+		
+		while (strin != null) {
+			sList[n] = new speedSkater();
+	           
+	        tokens = strin.split(delim);
+	        
+	        for (int i = 0; i < tokens.length; i++) {
+	        	System.out.println(tokens[i]);
+	        	String[] times = tokens[i].split("[:]+");
+	        	
+	        	sList[n].addTime(Integer.parseInt(times[0]), Integer.parseInt(times[1]));
+	        } // end for tokens
+	        
+	        
+	        n++;                         // increment counter
+	        System.out.println(strin);
+	        strin = fin.readLine();
+	    } // end eof loop
 		
 	// ***** output *****
 	
 		// all formatted ouput is printed in this section
 		
-		System.out.println(Skater.getTime(0));
+		
 
 	// ***** closing message *****
 	
-		System.out.println("end of processing");
+		fout.println(Printer.getClosing());
+		Printer.printClosing();
 	
+		fout.close();
+		
 	}  // end main	
 }  // end class

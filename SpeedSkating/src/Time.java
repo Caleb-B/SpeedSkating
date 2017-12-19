@@ -1,8 +1,8 @@
 /* **********************************************************
- * Programmer:	Rob Sveinson
- * Class:		CS20S
+ * Programmer:	Caleb Beynon
+ * Class:		CS30S
  * 
- * Assignment:	aX  qY
+ * Assignment:	2
  *
  * Description:	describe the class you are creating
  *
@@ -60,9 +60,10 @@
 	// Interface: IN: none
 	// Returns: speed
 	// *****************************************************
-	 public double getSpeed() {
-		 double speed;
-		 speed = (DISTANCE / ((this.getMinutes() / 60) + this.getSeconds())) / 3.6;
+	 public String getSpeed() {
+		 String speed;
+		 speed = Double.toString((DISTANCE / ((this.getMinutes() / 60)
+				 + this.getSeconds())) / 3.6);
 		 return speed;
 	 } // end getSpeed
 	 
@@ -89,4 +90,15 @@
 	 
  	// ********** mutators **********
  
+	//*****************************************************
+	// Purpose: change a time
+	// Interface: IN: minutes (int),
+	//				seconds (int)
+	// Returns: none
+	// *****************************************************
+	 public void setTime(int min, int sec) {
+		 this.minutes = min;
+		 this.seconds = sec;
+	 } // end setTime
+	 
  }  // end class
