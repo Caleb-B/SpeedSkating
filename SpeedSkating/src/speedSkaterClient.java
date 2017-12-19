@@ -1,8 +1,8 @@
 // **********************************************************************
-// Programmer:	Rob Sveinson
-// Class:		CS20S
+// Programmer:	Caleb Beynon
+// Class:		CS30S
 //
-// Assignment:	aX qy
+// Assignment:	2
 //
 // Description:	a brief description of the program goes here
 //
@@ -97,12 +97,16 @@ public class speedSkaterClient
 		
 		for (int i = 0; i < n; i++) {
 			System.out.println("Stats. of Skater " + (i + 1));
+			fout.println("Stats. for Skater " + (i + 1));
+			//for ( int idx = 0; idx < sList[i].getCount(); idx++) {
+			//	System.out.println("Time for Race " + (idx + 1) + ": " + sList[i].getTime(idx));
+			//	System.out.println("Speed for Race " + (idx + 1) + ": " + sList[i].getSpeed(idx));
+			//} // end for idx
+			sList[i].printSkater();
 			System.out.println("Average Speed: " + sList[i].getAvgSpeed());
 			System.out.println("Average Time: " + sList[i].getAvgTime());
-			for ( int idx = 0; idx < sList[i].getCount(); idx++) {
-				System.out.println("Time for Race " + (idx + 1) + ": " + sList[i].getTime(idx));
-				System.out.println("Speed for Race " + (idx + 1) + ": " + sList[i].getSpeed(idx));
-			} // end for idx
+			fout.println("Average Speed: " + sList[i].getAvgSpeed());
+			fout.println("Average Time: " + sList[i].getAvgTime());
 			
 			System.out.println("");
 		} // end for i

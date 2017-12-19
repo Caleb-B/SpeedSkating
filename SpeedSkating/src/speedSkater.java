@@ -30,6 +30,12 @@
 	 
  	// ********** constructors ***********
  	
+	//*****************************************************
+	// Purpose: create a speedSkater object with a unique id
+	 //			and an empty array of 10 Time objects
+	// Interface: IN: none
+	// Returns: none
+	// *****************************************************
 	 public speedSkater() {
 		 id = nextID++;
 		 
@@ -122,6 +128,18 @@
 	 public int getCount() {
 		 return this.count;
 	 } // end getCount
+	 
+	//*****************************************************
+	// Purpose: prints object id and all times
+	// Interface: IN: none
+	// Returns: none
+	// *****************************************************
+	 public void printSkater() {
+		 System.out.println("ID:" + this.id);
+		 for (int i = 0; i < this.count; i++) {
+			 System.out.println("Time for Race " + (i + 1) + ": " + this.timeList[i].toString());
+		 } // end for i
+	 } // end printSkater
 	 
  	// ********** mutators **********
 	 

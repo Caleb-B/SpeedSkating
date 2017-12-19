@@ -1,0 +1,23 @@
+**********************************
+NAME:        Caleb Beynon
+Class:       CS30S
+Assignment:  Assignment: 2
+**********************************
+
+Stats. for Skater 1
+Average Speed: 4.727777777777778
+Average Time: 07:05
+Stats. for Skater 2
+Average Speed: 5.7861111111111105
+Average Time: 06:56
+Stats. for Skater 3
+Average Speed: 4.129166666666666
+Average Time: 07:04
+Stats. for Skater 4
+Average Speed: 5.829166666666667
+Average Time: 06:59
+Stats. for Skater 5
+Average Speed: 5.434722222222223
+Average Time: 07:14
+end of processing
+
